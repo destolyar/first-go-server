@@ -1,6 +1,6 @@
 module example.com/hell
 
-go 1.19
+go 1.13
 
 require rsc.io/quote v1.5.2
 
