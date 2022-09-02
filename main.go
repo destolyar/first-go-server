@@ -4,11 +4,17 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 func main() {
 	http.HandleFunc("/", homeHandler)
-	http.ListenAndServe(":3000", nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "9000" // Default port if not specified
+	}
+
+	http.ListenAndServe(":"+port, nil)
 }
 
 func loadFile(fileName string) (string, error) {
